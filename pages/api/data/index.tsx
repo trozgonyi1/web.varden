@@ -12,7 +12,7 @@ export default async function handler(
     res: NextApiResponse<Data>
   ) {
     try {
-        var sequelize = new Sequelize('mysql://5ov9r0n7qmecm8uuunld:pscale_pw_JxqnijcykeYmPiiwbZAF2cl0ZOsxFni3TckqMJAd2B@us-east.connect.psdb.cloud/buamryan', {
+        var sequelize = new Sequelize(process.env.DATABASE_URL, {
           dialectOptions: {
             ssl: { // <1>
               // rejectUnauthorized: true,
