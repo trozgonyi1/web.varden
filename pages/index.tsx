@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </div> 
           <div>
             <Divider sx={{ marginTop: "20px", marginBottom: "3px" }} />
-            <AppFooter currentDate={new Date()} AppVersion={"1.0.0"} />
+            <AppFooter currentDate={2022} AppVersion={"1.0.0"} />
           </div>
         </div>
   )

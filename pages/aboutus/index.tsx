@@ -41,7 +41,7 @@ const page = () => {
                     <p style={{textAlign:"center"}}>{"Varden matches like-minded investors together and connects them with high performing properties that fit with their investing goals, preferences, and conveniences. Properties will be structured as a multi-member LLC and each member will purchase a share of ownership or equity (the group of members own 100% of the LLC).The LLC will be governed under an operating agreement that will allow the shareholders to make business decisions together, accrue a steady influx of revenue, and more."}</p>
                 </div>
             </div>
-            <AppFooter currentDate={new Date()} AppVersion={"1.0.0"}/>
+            <AppFooter currentDate={2022} AppVersion={"1.0.0"}/>
         </div>
     )
 }
