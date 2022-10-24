@@ -7,10 +7,10 @@ type Data = {
     name: string
 }
 
-export default async function handler(
+const allowCors = (fn: (req: NextApiRequest, res: NextApiResponse<Data>) => void) => async (
     req: NextApiRequest,
     res: NextApiResponse<Data>
-  ) {
+  ) => {
 
     res.setHeader('Access-Control-Allow-Credentials', "true")
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -44,8 +44,8 @@ export default async function handler(
       }, {
         tableName: "Varden"
       });
-    console.warn("Made it");
-    await Varden.sync();
+
+      await Varden.sync();
 
     if(req.method === "POST"){
         console.log('receiving data');
@@ -60,3 +60,10 @@ export default async function handler(
         res.redirect(200, "/submitted");
     }
   }
+
+  const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
+    const d = new Date()
+    res.end(d.toString())
+  }
+  
+  module.exports = allowCors(handler)
