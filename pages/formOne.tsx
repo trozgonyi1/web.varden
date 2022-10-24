@@ -24,7 +24,7 @@ const FormOne = () => {
     }
 
     const handleFormSubmit = async () => {
-      let response = await fetch('http://localhost:3000/api/data', {  // Enter your IP address here
+      let response = await fetch('https://varden.vercel.app/api/data', {  // Enter your IP address here
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({PropertyType: propType, PreferedMarket: prefMarket, GroupInvestment: radioState, NumInvestors: numInvestors}) //JSON.stringify(jsonData) // body data type must match "Content-Type" header
