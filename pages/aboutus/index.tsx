@@ -10,23 +10,24 @@ const page = () => {
             <div style={{paddingTop:"80px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"center"}}>
                 <h1>About Us</h1>
             </div>
-            <div style={{display:"flex", justifyContent:"center", flexDirection:"column",color:"black"}}>
-                <p style={{display:"flex", justifyContent:"center"}}>Varden takes luxury properties, otherwise inaccessible to the everyday investor, </p>
-                <p style={{display:"flex", justifyContent:"center"}}>and facilitates a structure where multiple people can split the cost of ownership through a share-based model.</p>
-                <p style={{display:"flex", justifyContent:"center"}}><i>This is not a timeshare.</i></p>
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <div style={{width:"900px", display:"flex", justifyContent:"center"}}>
+                <p style={{textAlign:"center",display:"flex", justifyContent:"center"}}>Real estate investing today remains inaccesable to the majority of retail investors. The largest asset class in the world has many barriers to entry, such as high prices and illiquid market places. Varden is aiming to break down the barriers of entry that make real estate investing closed off to eager investors.</p>
             </div>
-            <div style={{paddingTop:"20px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"center"}}>
+            </div>
+            <div style={{display:"flex", justifyContent:"center", flexDirection:"column",color:"black"}}>
+                <p style={{display:"flex", justifyContent:"center", marginBottom:"0px"}}>Varden takes luxury properties, otherwise inaccessible to the everyday investor,</p>
+                <p style={{display:"flex", justifyContent:"center", marginBottom:"0px", marginTop:"0px"}}>and facilitates a structure where multiple people can split the cost of ownership through a share-based model.</p>
+                <p style={{display:"flex", justifyContent:"center", marginTop:"0px"}}>Varden can facilitate real estate transactions structured around any real estate asset class.</p>
+            </div>
+            <div style={{paddingTop:"20px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"left"}}>
                 <p style={{fontSize:"20px"}}><b>Varden can be your resource for:</b></p>
             </div>
-            <div style={{display:"flex", justifyContent:"center", color:"black", border:"2px", borderColor:"#00476A", borderRadius:"3px"}}>
-                <div style={{width:"400px"}}>
+            <div style={{display:"flex", justifyContent:"left", color:"black", border:"2px", borderColor:"#00476A", borderRadius:"3px"}}>
+                <div style={{}}>
                     <ul>
                         <li>Sourcing unique and under-valued properties suited to your interests and investment strategies</li>
                         <li>Finding like-minded investment partners</li>
-                    </ul>
-                </div>
-                <div style={{width:"400px"}}>
-                    <ul>
                         <li>Set up of multi-member LLC formation and operating agreement</li>
                         <li>Set up of tax ID number/business bank account</li>
                         <li>Securing contracts with property managers</li>

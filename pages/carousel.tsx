@@ -7,6 +7,7 @@ import {
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
 
+
 const CoustomCarousel = () => {
     return (
       <MDBCarousel showControls showIndicators>
@@ -16,7 +17,7 @@ const CoustomCarousel = () => {
         src='./image1.png'
         alt='...'
       >
-        <p style={{color:"white", backgroundColor:'#22222280'}} >Democratized match-based real estate investing. Your passions drive your portfolio.</p>
+        <p><span style={{marginLeft:"0px", color:"white", backgroundColor:'#22222280',fontSize:"24px",fontFamily:"garamond"}}>Democratized match-based real estate investing. Your passions drive your portfolio.</span></p>
       </MDBCarouselItem>
       <MDBCarouselItem
         className='w-100 d-block'
@@ -24,7 +25,7 @@ const CoustomCarousel = () => {
         src='./image2.png'
         alt='...'
       >
-        <p>Democratized match-based real estate investing. Your passions drive your portfolio.</p>
+        <p style={{fontSize:"24px", fontFamily:"garamond"}}>Democratized match-based real estate investing. Your passions drive your portfolio.</p>
       </MDBCarouselItem>
       <MDBCarouselItem
         className='w-100 d-block'
@@ -32,7 +33,7 @@ const CoustomCarousel = () => {
         src='./image3.png'
         alt='...'
       >
-        <p>Democratized match-based real estate investing. Your passions drive your portfolio.</p>
+        <p style={{fontSize:"24px", fontFamily:"garamond"}}>Democratized match-based real estate investing. Your passions drive your portfolio.</p>
       </MDBCarouselItem>
     </MDBCarousel>
       // <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="false">
