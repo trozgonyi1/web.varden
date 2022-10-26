@@ -4,13 +4,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Carousel from './carousel';
 import ResponsiveAppBar from './navBar';
-import Card from './card';
+import FormOne from './formOne';
 import { Divider } from '@mui/material';
 import AppFooter from './AppFooter';
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from 'react';
-import { useRef } from "react";
+import { useEffect, useState, useRef } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from 'react-bootstrap';
 import {
   motion,
   useScroll,
@@ -18,11 +19,13 @@ import {
   useTransform,
   MotionValue
 } from "framer-motion";
+import FormPopup from "./popup"
+import FormTwo from './formTwo';
 
 type props = {
-  header: string,
-  body: string,
-  alignment: string
+  header: String,
+  body: String,
+  alignment: "row" | "row-reverse"
 }
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -34,52 +37,54 @@ const Box = ({ header, body, alignment } : props) => {
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
   const control = useAnimation();
-  // const [ref, inView] = useInView();
-  let alignment2 = "left"
-  let alignment1 = "";
 
-  if(alignment === "end"){
-    alignment2 = "right";
-    alignment1 = "end";
-  }
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const boxVariant = {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
     hidden: { opacity: 0, scale: 0 }
   };
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     control.start("visible");
-  //   } else {
-  //     control.start("hidden");
-  //   }
-  // }, [control, inView]);
-
   return (
     <section>
-      <div ref={ref}>
-        <div style={{height:"300px", scrollSnapType:"y proximity", padding:"20px", margin:"20px",paddingBottom:"10px", display:"flex", justifyContent:"center", flexDirection:"column", alignItems:alignment, backgroundColor:"#3D3D3D", color:"white", border:"3px solid white", borderColor:"#475c61", borderRadius:"20px", outline:"none", boxShadow:"0 0 20px #475c61"}}>
-          <h2 style={{paddingLeft:"35px", width:"60%", fontFamily:"garamond"}}>{header}</h2>
-          <p style={{paddingLeft:"25px",width:"60%", fontFamily:"garamond"}}>{body}</p>
+      <div className="inflate" ref={ref}>
+        <div style={{ flexDirection:alignment, display:"flex", alignContent:"center", height:"300px", padding:"20px", margin:"20px",paddingBottom:"0px",  backgroundColor:"#3D3D3D", color:"white", border:"3px solid white", borderColor:"#475c61", borderRadius:"20px", outline:"none", boxShadow:"0 0 20px #475c61"}}>
+          <div style={{width:"60%", display:"flex", justifyContent:"center", flexDirection:"column", }}>
+            <h2 style={{paddingLeft:"35px", width:"100%", fontFamily:"garamond"}}>{header}</h2>
+            <p style={{paddingLeft:"25px",width:"100%", fontFamily:"garamond"}}>{body}</p>
+          </div>
+          <div style={{width:"40%", display:"flex", justifyContent:"center", alignItems:"center"}}>
+          <Button className="btn-modal" onClick={handleShow}>
+                Open Modal
+            </Button>
+          <Modal show={show} onHide={handleClose} style={{paddingTop:"70px"}}>
+
+              <Modal.Header closeButton>
+                  <Modal.Title>{header.split(":")[0]}</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                  {header.split(":")[0]!=="Investment Package 3" && <FormOne />}
+                  {header.split(":")[0]==="Investment Package 3" && <FormTwo />}
+              </Modal.Body>
+
+              <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                      Close
+                  </Button>
+                  <Button variant="primary" onClick={handleClose}>
+                      Submit
+                  </Button>
+              </Modal.Footer>
+
+            </Modal>
+          </div>
         </div>
       </div>
       <motion.h2 style={{ y }}></motion.h2>
     </section>
-
-    // <motion.div
-    //   className="box"
-    //   ref={ref}
-    //   variants={boxVariant}
-    //   initial="hidden"
-    //   animate={control}
-    //   style={{paddingTop:"40px"}}
-    // >
-    //   <div style={{height:"300px", scrollSnapType:"y proximity", padding:"40px", margin:"40px",paddingBottom:"40px", display:"flex", justifyContent:"center", flexDirection:"column", alignItems:alignment, backgroundColor:"#3D3D3D", color:"white", border:"3px solid white", borderColor:"#475c61", borderRadius:"20px", outline:"none", boxShadow:"0 0 20px #475c61"}}>
-    //     <h2 style={{paddingLeft:"35px", width:"60%", fontFamily:"garamond"}}>{header}</h2>
-    //     <p style={{paddingLeft:"25px",width:"60%", fontFamily:"garamond"}}>{body}</p>
-    //   </div>
-    // </motion.div>
   );
 };
 
@@ -108,7 +113,20 @@ const Home: NextPage = () => {
   const header3 = "Investment Package 3: Short-term Airbnb rentals"
   const body3 = "This investment package solely focuses on short-term residential rental properties. In other words, Airbnb or vrbo properties. These assets generate income from short leases often driven by a popular vacation destination or heavy tourist destination."
 
-  const textHolder = [[header1, body1, "left"], [header2, body2, "end"], [header3,body3,"left"]];
+  type displayType = {
+    display: "row" | "row-reverse"
+  }
+
+  type text = {
+    header: String,
+    body: String,
+    display: displayType
+  }
+
+  var row: displayType = {display: "row"} as displayType
+  var rowReverse: displayType = {display: "row-reverse"} as displayType
+
+  const textHolder: text[] = [{header: header1, body: body1, display: row}, {header: header2, body: body2, display: rowReverse}, {header: header3, body: body3, display: row}];
 
   useEffect(() => {
     if (inView) {
@@ -132,25 +150,13 @@ const Home: NextPage = () => {
           <div>
          </div>
          <div className='mandatory'>
-         {textHolder.map((text) => (
+         {textHolder.map((item) => (
           <>
-            <Box header={text[0]} body={text[1]} alignment={text[2]}></Box>
+            <Box header={item.header} body={item.body} alignment={item.display.display}></Box>
             <motion.div className="progress" style={{ scaleX, position:"fixed", left:"0px", right:"0px", height:"5px", background:"var(--accent)", bottom:"100px" }} />
           </>
          ))}
          </div>
-          {/* <div style={{scrollSnapType:"y proximity"}}> */}
-            {/* <div>
-              <Box header={header1} body={body1} alignment="left"></Box>
-            </div>
-            <div>
-              <Box header={header2} body={body2} alignment="end"></Box>
-            </div>
-            <div>
-              <Box header={header3} body={body3} alignment="left"></Box>
-            </div> */}
-            {/* <Card/> */}
-          {/* </div>   */}
           <div>
             <Divider sx={{ marginTop: "60px", marginBottom: "3px" }} />
             <AppFooter currentDate={2022} AppVersion={"1.0.0"} />

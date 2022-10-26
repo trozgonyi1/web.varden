@@ -45,38 +45,28 @@ const FormOne = () => {
                 <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
                   <div className="mb-3">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Prefered Market</label>
-                    <input onChange={(e) => handlePrefMarket(e)} type="email" className="form-control" id="exampleFormControlInput1" placeholder="Placeholder" />
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Geographic Preference</label>
+                    <input onChange={(e) => handlePrefMarket(e)} type="text" className="form-control" id="exampleFormControlInput1" placeholder="New York City" />
                   </div>
-                  <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Group Investment</label>
-                    <div className="form-check">
-                      <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={() => handleRadioClick(true)}/>
-                      <label className="form-check-label" htmlFor="flexRadioDefault1">
-                        Yes
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={() => handleRadioClick(false)}/>
-                      <label className="form-check-label" htmlFor="flexRadioDefault2">
-                        No
-                      </label>
-                    </div>
+                  <label htmlFor="exampleFormControlInput1" className="form-label">Asset Preference</label>
+                  <select className="form-control" placeholder='Asset Preference'>
+                    <option>No Preference</option>
+                    <option>Office</option>
+                    <option>Retail</option>
+                    <option>Multifamily</option>
+                    <option>Industrial</option>
+                    <option>Hotel</option>
+                  </select>
+                  <label htmlFor="exampleFormControlInput1" className="form-label">Do you have an investment group already?</label>
+                  <select className="form-control" placeholder='Asset Preference'>
+                    <option>Yes</option>
+                    <option>I would like to be matched with like-minded investors</option>
+                  </select>
                   </div>
-                  {radioState && 
-                    <div className="input-group flex-nowrap">
-                        <span className="input-group-text" id="addon-wrapping"># of Investors</span>
-                        <input onChange={(e) => handleNumChange(e)} type="text" className="form-control" placeholder="(Ex: 6)" aria-label="Username" aria-describedby="addon-wrapping" />
-                    </div>
-                  }
-                </div>
               </div>
             </div>
           </div>
           <div style={{padding:"15px"}}></div>
-            <div className="submit" style={{display:"flex", justifyContent:"flex-start"}}>
-                  <button onClick={handleFormSubmit} type="button" className="btn btn-primary" style={{backgroundColor:"#00476A"}}>Submit</button>
-            </div>
           </form>
         </div>
     );
