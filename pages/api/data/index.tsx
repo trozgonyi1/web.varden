@@ -33,6 +33,7 @@ const allowCors = (fn: (req: NextApiRequest, res: NextApiResponse<Data>) => void
         await sequelize.sync({ force: true });
         console.log('Connection has been established successfully.');
       } catch (error) {
+        console.warn("ENV: "+ process.env);
         console.error('Unable to connect to the database:', error);
       }
 

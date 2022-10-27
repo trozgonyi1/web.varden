@@ -33,6 +33,8 @@ function useParallax(value: MotionValue<number>, distance: number) {
 }
 
 const Box = ({ header, body, alignment } : props) => {
+  const [ propType, setPropType ] = useState<string>("InvestmentProperty");
+
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
@@ -41,6 +43,14 @@ const Box = ({ header, body, alignment } : props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleFormSubmit = async () => {
+    let response = await fetch('https://varden.vercel.app/api/data', {  // Enter your IP address here
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({})
+    })
+  }
 
   const boxVariant = {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
@@ -56,8 +66,8 @@ const Box = ({ header, body, alignment } : props) => {
             <p style={{paddingLeft:"25px",width:"100%", fontFamily:"garamond"}}>{body}</p>
           </div>
           <div style={{width:"40%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-          <Button className="btn-modal" onClick={handleShow}>
-                Open Modal
+          <Button className="btn-modal" style={{backgroundColor:"#00476A", borderColor:"#000000"}} onClick={handleShow}>
+                Open Form
             </Button>
           <Modal show={show} onHide={handleClose} style={{paddingTop:"70px"}}>
 

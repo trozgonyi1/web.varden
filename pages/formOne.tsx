@@ -1,26 +1,31 @@
 import React, { Suspense, useEffect, useState } from 'react';
 
 type Props = {
-  title: string,
-  body: string
+  geo: string,
+  asset: string,
+  radio: string
 }
 
-const FormOne = () => {
-    const [ radioState, setRadioState ] = useState<boolean>(false);
+const FormOne = ( ) => {
+    const [ radioState, setRadioState ] = useState<string>("");
     const [ prefMarket, setPrefMarket ] = useState<string>("");
+    const [ geoPref, setGeoPref ] = useState<string>("");
+
     const [ numInvestors, setNumInvestors ] = useState<string>("");
+    const [ assetPref, setAssetPref ] = useState<string>("");
+
     const [ propType, setPropType ] = useState<string>("InvestmentProperty");
 
-    const handleRadioClick = (value: boolean) => {
-      setRadioState(value);
+    const handleGeoPref = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setGeoPref(e.target.value);
     }
 
-    const handlePrefMarket = async (event: { target: { value: React.SetStateAction<string>; }; }) => {
-      setPrefMarket(event.target.value);
+    const handleBool = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setRadioState(e.target.value);
     }
 
-    const handleNumChange = async (event: { target: { value: React.SetStateAction<string>; }; }) => {
-      setNumInvestors(event.target.value);
+    const handleAssetPref = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setAssetPref(e.target.value);
     }
 
     const handleFormSubmit = async () => {
@@ -46,10 +51,10 @@ const FormOne = () => {
                   <div className="accordion-body">
                   <div className="mb-3">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Geographic Preference</label>
-                    <input onChange={(e) => handlePrefMarket(e)} type="text" className="form-control" id="exampleFormControlInput1" placeholder="New York City" />
+                    <input onChange={(e) => handleGeoPref(e)} type="text" className="form-control" id="exampleFormControlInput1" placeholder="New York City" />
                   </div>
                   <label htmlFor="exampleFormControlInput1" className="form-label">Asset Preference</label>
-                  <select className="form-control" placeholder='Asset Preference'>
+                  <select className="form-control" placeholder='Asset Preference' onChange={(e) => handleAssetPref(e)}>
                     <option>No Preference</option>
                     <option>Office</option>
                     <option>Retail</option>
@@ -58,7 +63,7 @@ const FormOne = () => {
                     <option>Hotel</option>
                   </select>
                   <label htmlFor="exampleFormControlInput1" className="form-label">Do you have an investment group already?</label>
-                  <select className="form-control" placeholder='Asset Preference'>
+                  <select className="form-control" placeholder='Asset Preference' onChange={e => handleBool(e)}>
                     <option>Yes</option>
                     <option>I would like to be matched with like-minded investors</option>
                   </select>
