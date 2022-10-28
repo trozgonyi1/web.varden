@@ -2,18 +2,23 @@ import { borderColor, maxWidth } from "@mui/system";
 import React from "react";
 import ResponsiveAppBar from '../navBar';
 import AppFooter from "../AppFooter";
+import Image from 'next/image';
+import AboutUsImage from "../../public/aboutus.png";
+import NotFound from "../notFound";
 
 const page = () => {
     return (
+        // <NotFound />
         <div style={{backgroundColor:"White", color:"black"}}>
             <ResponsiveAppBar />
-            <div style={{paddingTop:"80px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"center"}}>
+            <NotFound />
+            {/* <div style={{paddingTop:"80px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"center"}}>
                 <h1>About Us</h1>
             </div>
             <div style={{display:"flex", justifyContent:"center"}}>
-            <div style={{width:"900px", display:"flex", justifyContent:"center"}}>
-                <p style={{textAlign:"center",display:"flex", justifyContent:"center"}}>Real estate investing today remains inaccesable to the majority of retail investors. The largest asset class in the world has many barriers to entry, such as high prices and illiquid market places. Varden is aiming to break down the barriers of entry that make real estate investing closed off to eager investors.</p>
-            </div>
+                <div style={{width:"900px", display:"flex", justifyContent:"center"}}>
+                    <p style={{textAlign:"center",display:"flex", justifyContent:"center"}}>Real estate investing today remains inaccesable to the majority of retail investors. The largest asset class in the world has many barriers to entry, such as high prices and illiquid market places. Varden is aiming to break down the barriers of entry that make real estate investing closed off to eager investors.</p>
+                </div>
             </div>
             <div style={{display:"flex", justifyContent:"center", flexDirection:"column",color:"black"}}>
                 <p style={{display:"flex", justifyContent:"center", marginBottom:"0px"}}>Varden takes luxury properties, otherwise inaccessible to the everyday investor,</p>
@@ -21,7 +26,7 @@ const page = () => {
                 <p style={{display:"flex", justifyContent:"center", marginTop:"0px"}}>Varden can facilitate real estate transactions structured around any real estate asset class.</p>
             </div>
             <div style={{paddingTop:"20px", fontFamily:"arkhip",color:"black",display:"flex", justifyContent:"left"}}>
-                <p style={{fontSize:"20px"}}><b>Varden can be your resource for:</b></p>
+                <p style={{fontSize:"20px", paddingLeft:"20px"}}><b>Varden can be your resource for:</b></p>
             </div>
             <div style={{display:"flex", justifyContent:"left", color:"black", border:"2px", borderColor:"#00476A", borderRadius:"3px"}}>
                 <div style={{}}>
@@ -33,6 +38,7 @@ const page = () => {
                         <li>Securing contracts with property managers</li>
                     </ul>
                 </div>
+                <Image src={AboutUsImage} style={{height:"200px"}}/>
             </div>
             <div style={{display:"flex", justifyContent:"center"}}>
                 <h2 style={{color:"black", fontFamily:"arkhip"}}>Our Mission</h2>
@@ -41,7 +47,7 @@ const page = () => {
                 <div style={{width:"600px",display:"flex", justifyContent:"center", flexDirection:"column",color:"black"}}>
                     <p style={{textAlign:"center"}}>{"Varden matches like-minded investors together and connects them with high performing properties that fit with their investing goals, preferences, and conveniences. Properties will be structured as a multi-member LLC and each member will purchase a share of ownership or equity (the group of members own 100% of the LLC).The LLC will be governed under an operating agreement that will allow the shareholders to make business decisions together, accrue a steady influx of revenue, and more."}</p>
                 </div>
-            </div>
+            </div> */}
             <AppFooter currentDate={2022} AppVersion={"1.0.0"}/>
         </div>
     )

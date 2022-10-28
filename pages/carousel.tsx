@@ -25,7 +25,7 @@ const CarouselWrapper = styled.div`
 
 const CoustomCarousel = () => {
     return (
-      <Carousel autoPlay={true} infiniteLoop={true} interval={3000} showThumbs={false} showIndicators={false}>
+      <Carousel autoPlay={true} infiniteLoop={true} interval={4000} showThumbs={false} showIndicators={false}>
         <div>
           <Image src={Image1}/>
           <p className="legend">Democratized match-based real estate investing. Your passions drive your portfolio.</p>
