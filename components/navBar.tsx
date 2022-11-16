@@ -47,7 +47,8 @@ const ResponsiveAppBar = () => {
             <Toolbar disableGutters>
               <Image
                 src="/VardenLogo.png"
-                style={{ width: "40px" }}
+                width="40px"
+                height="40px"
                 alt="logo"
               />
               <div style={{ paddingRight: "10px" }}></div>
