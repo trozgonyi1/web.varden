@@ -6,7 +6,7 @@ import Image from "next/image";
 import Money from "../../public/money.svg";
 import Handshake from "../../public/handshake.svg";
 import Chart from "../../public/chart.svg";
-import JoeImage from "../../public/joeimage.jpg";
+// import JoeImage from "../../public/joeimage.jpg";
 import AboutUsImage from "../../public/aboutus.png";
 import NotFound from "../../components/notFound";
 
