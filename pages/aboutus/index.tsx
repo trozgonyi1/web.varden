@@ -6,7 +6,7 @@ import Image from "next/image";
 import Money from "../../public/money.svg";
 import Handshake from "../../public/handshake.svg";
 import Chart from "../../public/chart.svg";
-// import JoeImage from "../../public/joeimage.jpg";
+import JoeImage from '../public/joeimage.png';
 import AboutUsImage from "../../public/aboutus.png";
 import NotFound from "../../components/notFound";
 
@@ -264,7 +264,7 @@ const page = () => {
             maxWidth: "500px",
           }}
         >
-          <Image src="/joeimage.jpg" alt="Head Shot" width="400" height="267" />
+          <Image src={JoeImage} alt="Head Shot" width="400" height="267" />
         </div>
       </div>
       <AppFooter currentDate={2022} AppVersion={"1.0.0"} />
