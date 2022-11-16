@@ -1,14 +1,14 @@
 import { borderColor, maxWidth } from "@mui/system";
 import React from "react";
-import ResponsiveAppBar from "../navBar";
-import AppFooter from "../AppFooter";
+import ResponsiveAppBar from "../../components/navBar";
+import AppFooter from "../../components/AppFooter";
 import Image from "next/image";
 import Money from "../../public/money.svg";
 import Handshake from "../../public/handshake.svg";
 import Chart from "../../public/chart.svg";
 import JoeImage from "../../public/joeimage.jpg";
 import AboutUsImage from "../../public/aboutus.png";
-import NotFound from "../notFound";
+import NotFound from "../../components/notFound";
 
 const page = () => {
   return (
@@ -25,8 +25,9 @@ const page = () => {
           justifyContent: "center",
         }}
       >
-        <h1 style={{fontFamily:"arkhip"}}>Fractional investing democratizing the real estate industry
-</h1>
+        <h1 style={{ fontFamily: "arkhip" }}>
+          Fractional investing democratizing the real estate industry
+        </h1>
       </div>
       <div>
         <hr style={{ width: "50%" }} />
@@ -81,8 +82,11 @@ const page = () => {
               These investment models give you no feeling that you are a land
               owner. Private placements of small investment groups through real
               estate investment shops do exist mostly for accredited investors
-              only, but <b>fail to meet the need to offering the land ownership
-              experience at an affordable price.</b>
+              only, but{" "}
+              <b>
+                fail to meet the need to offering the land ownership experience
+                at an affordable price.
+              </b>
             </p>
           </div>
         </div>
@@ -160,7 +164,7 @@ const page = () => {
             </p>
           </div>
         </div> */}
-        {/* <Image src={AboutUsImage} style={{height:"200px"}}/> */}
+      {/* <Image src={AboutUsImage} style={{height:"200px"}}/> */}
       {/* </div> */}
       <div>
         <hr style={{ width: "50%" }} />
@@ -174,50 +178,15 @@ const page = () => {
       >
         <div style={{}}>
           <div style={{ display: "flex", justifyContent: "left" }}>
-            <h2 style={{ color: "black", fontFamily: "arkhip" }}>
-              About Us
-            </h2>
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", }}>
-          <div
-            style={{
-              width: "600px",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              color: "black",
-            }}
-          >
-            <p>
-            My name is Joe Rozgonyi. I am a Junior at the University of Notre Dame studying finance and real estate. I am an avid traveler, fly fisherman, boxer, and real estate enthusiast. I am from Westchester, New York which is just about  an hour north of NYC.
-            </p>
+            <h2 style={{ color: "black", fontFamily: "arkhip" }}>About Us</h2>
           </div>
           <div
             style={{
-              width: "600px",
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
-              color: "black",
             }}
           >
-            <p>
-            As a young entrepreneur I was determined to find a way to invest my savings in real estate assets. While researching the most effective methods to break into real estate markets, I discovered that the current investment vehicles take away the feeling of ownership by diluting your share of equity and putting operating activities in the hands of institutional operators.
-            </p>
-          </div>
-          <div
-            style={{
-              width: "600px",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              color: "black",
-            }}
-          >
-            <p>
-            I grew Varden with a vision that the real estate industry being as democratized and accessible to all investors as the stock market now is from electric trading. Real estate is a dinosaur in the sense that the industry is dominated by big institution landlords. Quality real estate assets are completely out of reach for the everyday investor. Through match-based fractional real estate investing, Varden is here to change that. 
-            </p>
-          </div>
             <div
               style={{
                 width: "600px",
@@ -227,11 +196,62 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p style={{ textAlign: "left" }}>
-              
-
-
+              <p>
+                My name is Joe Rozgonyi. I am a Junior at the University of
+                Notre Dame studying finance and real estate. I am an avid
+                traveler, fly fisherman, boxer, and real estate enthusiast. I am
+                from Westchester, New York which is just about an hour north of
+                NYC.
               </p>
+            </div>
+            <div
+              style={{
+                width: "600px",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                color: "black",
+              }}
+            >
+              <p>
+                As a young entrepreneur I was determined to find a way to invest
+                my savings in real estate assets. While researching the most
+                effective methods to break into real estate markets, I
+                discovered that the current investment vehicles take away the
+                feeling of ownership by diluting your share of equity and
+                putting operating activities in the hands of institutional
+                operators.
+              </p>
+            </div>
+            <div
+              style={{
+                width: "600px",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                color: "black",
+              }}
+            >
+              <p>
+                I grew Varden with a vision that the real estate industry being
+                as democratized and accessible to all investors as the stock
+                market now is from electric trading. Real estate is a dinosaur
+                in the sense that the industry is dominated by big institution
+                landlords. Quality real estate assets are completely out of
+                reach for the everyday investor. Through match-based fractional
+                real estate investing, Varden is here to change that.
+              </p>
+            </div>
+            <div
+              style={{
+                width: "600px",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                color: "black",
+              }}
+            >
+              <p style={{ textAlign: "left" }}></p>
             </div>
           </div>
         </div>
