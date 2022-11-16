@@ -47,7 +47,7 @@ const page = () => {
               justifyContent: "center",
             }}
           >
-            <p>
+            <p style={{fontFamily:"garamond", fontSize:"16px"}}>
               Real estate is one of the most proven wealth-creation methods in
               the history of mankind. One of America’s first multi-millionaires,
               Jacob John Astor, sought to find the American dream after his poor
@@ -66,7 +66,7 @@ const page = () => {
               justifyContent: "center",
             }}
           >
-            <p>
+            <p style={{fontFamily:"garamond", fontSize:"16px"}}>
               Real estate has been a laggard in the electronic
               trading/investment boom. Applications like robinhhood, webull,
               coinbase, and many more have opened up the world of financial
@@ -196,7 +196,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p>
+              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
                 My name is Joe Rozgonyi. I am a Junior at the University of
                 Notre Dame studying finance and real estate. I am an avid
                 traveler, fly fisherman, boxer, and real estate enthusiast. I am
@@ -213,7 +213,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p>
+              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
                 As a young entrepreneur I was determined to find a way to invest
                 my savings in real estate assets. While researching the most
                 effective methods to break into real estate markets, I
@@ -232,7 +232,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p>
+              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
                 I grew Varden with a vision that the real estate industry being
                 as democratized and accessible to all investors as the stock
                 market now is from electric trading. Real estate is a dinosaur
