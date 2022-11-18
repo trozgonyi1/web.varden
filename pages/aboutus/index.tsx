@@ -33,11 +33,13 @@ const page = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width:"100%",
+            height:"600px"
           }}
         >
           <Image
             src={RiverImg}
-            width="1440px"
+            layout="fill"
             height="600px"
             style={{ top: "0", left: "0", zIndex: "1", position: "absolute" }}
           />
@@ -46,7 +48,7 @@ const page = () => {
               backgroundColor: "#969696CF",
               top: "0",
               left: "0",
-              width: "1440px",
+              width: "100%",
               height: "660px",
               zIndex: "2",
               position: "absolute",
@@ -68,7 +70,7 @@ const page = () => {
           >
             <div style={{ display: "flex", justifyContent: "center" }}>
               <h1 style={{ fontFamily: "arkhip" }}>
-                Fractional Investing: Democratizing the Real Estate Industry
+                Fractional Investing: Democratizing The Real Estate Industry
               </h1>
             </div>
             <div>

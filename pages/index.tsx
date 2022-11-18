@@ -118,7 +118,7 @@ const Box = ({ header, body, alignment }: props) => {
               style={{ backgroundColor: "#00476A", borderColor: "#000000" }}
               onClick={handleShow}
             >
-              Open Form
+              Investment Inquiries
             </Button>
             <Modal
               show={show}
