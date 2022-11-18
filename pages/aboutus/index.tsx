@@ -6,9 +6,11 @@ import Image from "next/image";
 import Money from "../../public/money.svg";
 import Handshake from "../../public/handshake.svg";
 import Chart from "../../public/chart.svg";
-import JoeImage from '../../public/joeimage.png';
+import JoeImage from "../../public/joeimage.png";
 import AboutUsImage from "../../public/aboutus.png";
 import NotFound from "../../components/notFound";
+import RiverImg from "../../public/riverbackground.png";
+import Box from "@mui/material/Box";
 
 const page = () => {
   return (
@@ -18,76 +20,144 @@ const page = () => {
       {/* <NotFound /> */}
       <div
         style={{
-          paddingTop: "80px",
+          paddingTop: "60px",
           fontFamily: "arkhip",
           color: "black",
-          display: "flex",
-          justifyContent: "center",
+          // display: "flex",
+          // justifyContent: "center",
+          position: "relative",
         }}
       >
-        <h1 style={{ fontFamily: "arkhip" }}>
-          Fractional investing democratizing the real estate industry
-        </h1>
-      </div>
-      <div>
-        <hr style={{ width: "50%" }} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            flexDirection: "column",
+            alignItems: "center",
           }}
         >
+          <Image
+            src={RiverImg}
+            width="1440px"
+            height="600px"
+            style={{ top: "0", left: "0", zIndex: "1", position: "absolute" }}
+          />
+          <span
+            style={{
+              backgroundColor: "#969696CF",
+              top: "0",
+              left: "0",
+              width: "1440px",
+              height: "660px",
+              zIndex: "2",
+              position: "absolute",
+            }}
+          ></span>
+
           <div
             style={{
-              width: "900px",
-              display: "flex",
-              justifyContent: "center",
+              position: "absolute",
+              zIndex: "5",
+              color: "#010101",
+              top: "0",
+              left: "0",
+              right: "0",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingTop: "68px",
             }}
           >
-            <p style={{fontFamily:"garamond", fontSize:"16px"}}>
-              Real estate is one of the most proven wealth-creation methods in
-              the history of mankind. One of America’s first multi-millionaires,
-              Jacob John Astor, sought to find the American dream after his poor
-              immigrant father came to the new world pursuing new wealth and
-              opportunity. Astor grew up in New England and grew his fur trading
-              business. As his business started to see exceptional growth, Astor
-              began investing his profits in real estate located in present-day
-              New York City. Astor quickly became a real estate mogul and proved
-              that real estate made for a profitable financial asset.
-            </p>
-          </div>
-          <div
-            style={{
-              width: "900px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <p style={{fontFamily:"garamond", fontSize:"16px"}}>
-              Real estate has been a laggard in the electronic
-              trading/investment boom. Applications like robinhhood, webull,
-              coinbase, and many more have opened up the world of financial
-              assets to a much wider reach of retail investors. However retail
-              investors looking to diversify their portfolio in real estate are
-              stuck with limited and sub-optimal options. Crowdfunding and REITs
-              are two of the most popular ways that retail investors can own
-              real estate assets. Although these investments break down the
-              barrier of extremely high asset prices through a fractional model,
-              investors still experience a disconnect in what it is like to own
-              a real estate asset in the nature that institutional investors do.
-              Through crowdfunding and REITs investors can be one of thousands.
-              These investment models give you no feeling that you are a land
-              owner. Private placements of small investment groups through real
-              estate investment shops do exist mostly for accredited investors
-              only, but{" "}
-              <b>
-                fail to meet the need to offering the land ownership experience
-                at an affordable price.
-              </b>
-            </p>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h1 style={{ fontFamily: "arkhip" }}>
+                Fractional Investing: Democratizing the Real Estate Industry
+              </h1>
+            </div>
+            <div>
+              <hr style={{ width: "50%" }} />
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <div
+                  style={{
+                    width: "900px",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "garamond",
+                      fontSize: "16px",
+                      fontWeight: "800",
+                    }}
+                  >
+                    Real estate is one of the most proven wealth-creation
+                    methods in the history of mankind. One of America’s first
+                    multi-millionaires, Jacob John Astor, sought to find the
+                    American dream after his poor immigrant father came to the
+                    new world pursuing new wealth and opportunity. Astor grew up
+                    in New England and grew his fur trading business. As his
+                    business started to see exceptional growth, Astor began
+                    investing his profits in real estate located in present-day
+                    New York City. Astor quickly became a real estate mogul and
+                    proved that real estate made for a profitable financial
+                    asset.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    width: "900px",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "garamond",
+                      fontSize: "16px",
+                      fontWeight: "800",
+                    }}
+                  >
+                    Real estate has been a laggard in the electronic
+                    trading/investment boom. Applications like robinhhood,
+                    webull, coinbase, and many more have opened up the world of
+                    financial assets to a much wider reach of retail investors.
+                    However retail investors looking to diversify their
+                    portfolio in real estate are stuck with limited and
+                    sub-optimal options. Crowdfunding and REITs are two of the
+                    most popular ways that retail investors can own real estate
+                    assets. Although these investments break down the barrier of
+                    extremely high asset prices through a fractional model,
+                    investors still experience a disconnect in what it is like
+                    to own a real estate asset in the nature that institutional
+                    investors do. Through crowdfunding and REITs investors can
+                    be one of thousands. These investment models give you no
+                    feeling that you are a land owner. Private placements of
+                    small investment groups through real estate investment shops
+                    do exist mostly for accredited investors only, but{" "}
+                    <u>
+                      fail to meet the need to offering the land ownership
+                      experience at an affordable price.
+                    </u>
+                  </p>
+                </div>
+                <div
+                  style={{
+                    zIndex: "5",
+                    color: "#010101",
+                  }}
+                >
+                  <div>
+                    <hr style={{ width: "80%" }} />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -166,9 +236,6 @@ const page = () => {
         </div> */}
       {/* <Image src={AboutUsImage} style={{height:"200px"}}/> */}
       {/* </div> */}
-      <div>
-        <hr style={{ width: "50%" }} />
-      </div>
       <div
         style={{
           display: "flex",
@@ -176,7 +243,9 @@ const page = () => {
           paddingTop: "50px",
         }}
       >
-        <div style={{}}>
+        {/* <Box sx={{ display: "flex", background: `url(${RiverImg}) center / cover` }}> */}
+        {/* <div style={{display:"flex", }}> */}
+        <div>
           <div style={{ display: "flex", justifyContent: "left" }}>
             <h2 style={{ color: "black", fontFamily: "arkhip" }}>About Us</h2>
           </div>
@@ -196,7 +265,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
+              <p style={{ fontFamily: "garamond", fontSize: "16px" }}>
                 My name is Joe Rozgonyi. I am a Junior at the University of
                 Notre Dame studying finance and real estate. I am an avid
                 traveler, fly fisherman, boxer, and real estate enthusiast. I am
@@ -213,7 +282,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
+              <p style={{ fontFamily: "garamond", fontSize: "16px" }}>
                 As a young entrepreneur I was determined to find a way to invest
                 my savings in real estate assets. While researching the most
                 effective methods to break into real estate markets, I
@@ -232,7 +301,7 @@ const page = () => {
                 color: "black",
               }}
             >
-              <p style={{fontFamily:"garamond", fontSize:"16px"}}>
+              <p style={{ fontFamily: "garamond", fontSize: "16px" }}>
                 I grew Varden with a vision that the real estate industry being
                 as democratized and accessible to all investors as the stock
                 market now is from electric trading. Real estate is a dinosaur
@@ -266,7 +335,10 @@ const page = () => {
         >
           <Image src={JoeImage} alt="Head Shot" width="400" height="267" />
         </div>
+        {/* </div> */}
+        {/* </Box> */}
       </div>
+
       <AppFooter currentDate={2022} AppVersion={"1.0.0"} />
     </div>
   );
