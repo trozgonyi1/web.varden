@@ -10,6 +10,7 @@ const FormOne = () => {
   const [prefMarket, setPrefMarket] = useState<string>("");
   const [numInvestors, setNumInvestors] = useState<string>("");
   const [propType, setPropType] = useState<string>("InvestmentProperty");
+  const [email, setEmail] = useState<string>("");
 
   const handleRadioClick = (value: boolean) => {
     setRadioState(value);
@@ -25,6 +26,10 @@ const FormOne = () => {
     target: { value: React.SetStateAction<string> };
   }) => {
     setNumInvestors(event.target.value);
+  };
+
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
 
   const handleFormSubmit = async () => {
@@ -66,6 +71,18 @@ const FormOne = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
+                <div className="mb-3">
+                  <label htmlFor="emailForm" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    onChange={(e) => handleEmail(e)}
+                    type="text"
+                    className="form-control"
+                    id="emailForm"
+                    placeholder="example@mail.com"
+                  />
+                </div>
                 <div className="mb-3">
                   <label
                     htmlFor="exampleFormControlInput1"

@@ -7,18 +7,9 @@ import ResponsiveAppBar from "../components/navBar";
 import FormOne from "../components/formOne";
 import { Divider } from "@mui/material";
 import AppFooter from "../components/AppFooter";
-import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Button } from "react-bootstrap";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue,
-} from "framer-motion";
 import FormTwo from "../components/formTwo";
 
 type props = {
@@ -27,24 +18,15 @@ type props = {
   alignment: "row" | "row-reverse";
 };
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
-
 const Box = ({ header, body, alignment }: props) => {
   const [propType, setPropType] = useState<string>("InvestmentProperty");
-
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
-  const control = useAnimation();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleFormSubmit = async () => {
-    let response = await fetch("https://varden.vercel.app/api/data", {
+    let response = await fetch("https://localhost:3000/api/data", {
       // Enter your IP address here
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -58,110 +40,97 @@ const Box = ({ header, body, alignment }: props) => {
   };
 
   return (
-    <section>
-      <div className="inflate" ref={ref}>
+    <div style={{ paddingTop: "40px", paddingBottom: "40px" }}>
+      <div
+        style={{
+          flexDirection: alignment,
+          display: "flex",
+          alignContent: "center",
+          height: "300px",
+          padding: "20px",
+          margin: "20px",
+          paddingBottom: "0px",
+          backgroundColor: "#3D3D3D",
+          color: "white",
+          border: "3px solid white",
+          borderColor: "#475c61",
+          borderRadius: "20px",
+          outline: "none",
+          boxShadow: "0 0 20px #475c61",
+        }}
+      >
         <div
           style={{
-            flexDirection: alignment,
+            width: "60%",
             display: "flex",
-            alignContent: "center",
-            height: "300px",
-            padding: "20px",
-            margin: "20px",
-            paddingBottom: "0px",
-            backgroundColor: "#3D3D3D",
-            color: "white",
-            border: "3px solid white",
-            borderColor: "#475c61",
-            borderRadius: "20px",
-            outline: "none",
-            boxShadow: "0 0 20px #475c61",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
         >
-          <div
+          <h2
             style={{
-              width: "60%",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
+              paddingLeft: "35px",
+              width: "100%",
+              fontFamily: "garamond",
             }}
           >
-            <h2
-              style={{
-                paddingLeft: "35px",
-                width: "100%",
-                fontFamily: "garamond",
-              }}
-            >
-              {header}
-            </h2>
-            <p
-              style={{
-                paddingLeft: "25px",
-                width: "100%",
-                fontFamily: "garamond",
-              }}
-            >
-              {body}
-            </p>
-          </div>
-          <div
+            {header}
+          </h2>
+          <p
             style={{
-              width: "40%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              paddingLeft: "25px",
+              width: "100%",
+              fontFamily: "garamond",
             }}
           >
-            <Button
-              className="btn-modal"
-              style={{ backgroundColor: "#00476A", borderColor: "#000000" }}
-              onClick={handleShow}
-            >
-              Investment Inquiries
-            </Button>
-            <Modal
-              show={show}
-              onHide={handleClose}
-              style={{ paddingTop: "70px" }}
-            >
-              <Modal.Header closeButton>
-                <Modal.Title>{header.split(":")[0]}</Modal.Title>
-              </Modal.Header>
+            {body}
+          </p>
+        </div>
+        <div
+          style={{
+            width: "40%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Button
+            className="btn-modal"
+            style={{ backgroundColor: "#00476A", borderColor: "#000000" }}
+            onClick={handleShow}
+          >
+            Investment Inquiries
+          </Button>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            style={{ paddingTop: "70px" }}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>{header.split(":")[0]}</Modal.Title>
+            </Modal.Header>
 
-              <Modal.Body>
-                {header.split(":")[0] !== "Investment Package 3" && <FormOne />}
-                {header.split(":")[0] === "Investment Package 3" && <FormTwo />}
-              </Modal.Body>
+            <Modal.Body>
+              {header.split(":")[0] !== "Investment Package 3" && <FormOne />}
+              {header.split(":")[0] === "Investment Package 3" && <FormTwo />}
+            </Modal.Body>
 
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                  Submit
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </div>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleFormSubmit}>
+                Submit
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
-      <motion.h2 style={{ y }}></motion.h2>
-    </section>
+    </div>
   );
 };
 
 const Home: NextPage = () => {
-  const control = useAnimation();
-  const [ref, inView] = useInView();
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   const boxVariant = {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
     hidden: { opacity: 0, scale: 0 },
@@ -199,14 +168,6 @@ const Home: NextPage = () => {
     { header: header2, body: body2, display: rowReverse },
     { header: header3, body: body3, display: row },
   ];
-
-  useEffect(() => {
-    if (inView) {
-      control.start("visible");
-    } else {
-      control.start("hidden");
-    }
-  }, [control, inView]);
 
   return (
     <div style={{ backgroundColor: "#3D3D3D", height: "100%" }}>
@@ -271,25 +232,11 @@ const Home: NextPage = () => {
       <div></div>
       <div className="mandatory">
         {textHolder.map((item) => (
-          <>
-            <Box
-              header={item.header}
-              body={item.body}
-              alignment={item.display.display}
-            ></Box>
-            <motion.div
-              className="progress"
-              style={{
-                scaleX,
-                position: "fixed",
-                left: "0px",
-                right: "0px",
-                height: "5px",
-                background: "var(--accent)",
-                bottom: "100px",
-              }}
-            />
-          </>
+          <Box
+            header={item.header}
+            body={item.body}
+            alignment={item.display.display}
+          ></Box>
         ))}
       </div>
       <div>

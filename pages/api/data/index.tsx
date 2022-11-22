@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { json } from 'sequelize';
 const express = require("express");
 const { Sequelize, Model, DataTypes } = require('sequelize');
 require('dotenv').config();
@@ -23,7 +24,7 @@ const allowCors = (fn: (req: NextApiRequest, res: NextApiResponse<Data>) => void
     )
 
     try {
-        var sequelize = new Sequelize(process.env.DATABASE_URL, {
+        var sequelize = new Sequelize("mysql://5ov9r0n7qmecm8uuunld:pscale_pw_JxqnijcykeYmPiiwbZAF2cl0ZOsxFni3TckqMJAd2B@us-east.connect.psdb.cloud/buamryan", {
           dialectOptions: {
             ssl: { // <1>
               // rejectUnauthorized: true,
@@ -46,7 +47,7 @@ const allowCors = (fn: (req: NextApiRequest, res: NextApiResponse<Data>) => void
         tableName: "Varden"
       });
 
-      await Varden.sync();
+      await Varden.sync({force:true});
 
     if(req.method === "POST"){
         console.log('receiving data');
@@ -58,7 +59,7 @@ const allowCors = (fn: (req: NextApiRequest, res: NextApiResponse<Data>) => void
         const upload = Varden.build({PropertyType: PropertyType_, PreferedMarket: PreferedMarket_, GroupInvestment: GroupInvestment_, NumInvestors: NumInvestors_})
         await upload.save();
 
-        res.redirect(200, "/submitted");
+        res.send({ "name":"done" })
     }
   }
 

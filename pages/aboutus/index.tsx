@@ -138,7 +138,7 @@ const page = () => {
                     investors still experience a disconnect in what it is like
                     to own a real estate asset in the nature that institutional
                     investors do. Through crowdfunding and REITs investors can
-                    be one of thousands. These investment models give you no
+                    be one of thousands. These investment models give you the
                     feeling that you are a land owner. Private placements of
                     small investment groups through real estate investment shops
                     do exist mostly for accredited investors only, but{" "}
